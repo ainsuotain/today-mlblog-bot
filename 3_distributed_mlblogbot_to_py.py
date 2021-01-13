@@ -127,7 +127,8 @@ slack.chat.post_message(channel='#1_mlblog-bot',
                         text = None,
                         attachments = attachments,
                         icon_url='https://cdn2.iconfinder.com/data/icons/artificial-intelligence-ai-color/64/diagram-deep-learning-machine-network-nural-512.png',
-                        as_user = True)
+                        # as_user = True
+                       )
 
 
 
