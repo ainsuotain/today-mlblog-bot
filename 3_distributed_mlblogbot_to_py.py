@@ -86,6 +86,7 @@ new_index # 다른 index
 np.shape(new_index)[1]
 new_index = np.concatenate(new_index)
 for t in new_index:
+  print('')
   # print(t)
   # print(new_list['title'][t])
   # print(new_list['link'][t])
