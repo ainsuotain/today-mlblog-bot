@@ -52,8 +52,8 @@ for b in range(np.shape(smd_yesterday)[0]):
 
     if smd_yesterday['name'][b] == 'dsba_seminar': ### feed 확인
       temp = rss_list[3]
-    # print(temp['title'])
-    # print(temp['link'])
+    print(temp['title'])
+    print(temp['link'])
     ## print(temp['author']) # 가끔 안나옴 --> 그냥 넣어줘야 할듯...
 
 
@@ -61,7 +61,7 @@ for b in range(np.shape(smd_yesterday)[0]):
     post_titles.append(temp['title'].strip())
     post_links.append(temp['link'].strip())
     # post_titles.append(smd_yesterday['name'][b])
-    # print(" ")
+    print(" ")
 
   elif smd_yesterday['source'][b] == 'naver_feedx':
     print('')
