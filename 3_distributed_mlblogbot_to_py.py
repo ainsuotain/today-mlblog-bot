@@ -105,13 +105,9 @@ soup = BeautifulSoup(html, 'html.parser')
 bible1 = soup.find_all(class_ = 'bible_text')
 bible1 = bible1[0].getText().strip()
 # print(bible1)
-
-
 script = soup.find_all(class_ = 'bibleinfo_box')
 script = script[0].getText().strip()
 # print(script)
-
-
 today_bible = bible1 + ", (" + script + ")"
 # print(today_bible)
 
