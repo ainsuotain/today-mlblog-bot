@@ -12,15 +12,11 @@ Original file is located at
 import pandas as pd
 import numpy as np
 import sys, os
-
 import json
 import requests
 from bs4 import BeautifulSoup
-
-
 # pip install feedparser
 import feedparser
-
 # pip install slacker
 from slacker import Slacker
 
@@ -67,7 +63,7 @@ for b in range(np.shape(smd_yesterday)[0]):
     # print(" ")
 
   elif smd_yesterday['source'][b] == 'naver_feedx':
-    print('') 
+    print('')
 
 ### 뉴리스트 만들기(오늘자)
 new_list = pd.DataFrame()
