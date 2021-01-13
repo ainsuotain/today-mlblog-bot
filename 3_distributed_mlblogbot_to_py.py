@@ -52,6 +52,8 @@ for b in range(np.shape(smd_yesterday)[0]):
 
     if smd_yesterday['name'][b] == 'dsba_seminar': ### feed 확인
       temp = rss_list[3]
+    
+    
     print(temp['title'])
     print(temp['link'])
     ## print(temp['author']) # 가끔 안나옴 --> 그냥 넣어줘야 할듯...
