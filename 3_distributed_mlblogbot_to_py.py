@@ -122,7 +122,8 @@ attachments_dict['title'] = script
 attachments_dict['title_link'] = 'https://sum.su.or.kr:8888/bible/today'
 attachments_dict['text'] = 'maeil-bible'
 
-#attachments_dict['mrkdwn_in'] = ["pretext", "text"]
+# attachments_dict['mrkdwn'] = ["pretext", "text"]
+attachments_dict['mrkdwn'] = 'true'
 attachments = [attachments_dict]
 
 slack.chat.post_message(channel='#1_mlblog-bot',
