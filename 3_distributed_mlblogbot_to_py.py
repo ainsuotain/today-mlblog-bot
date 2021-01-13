@@ -124,7 +124,7 @@ attachments_dict['text'] = 'maeil-bible'
 
 # attachments_dict['mrkdwn_in'] = ["pretext", "text"]
 # attachments_dict['mrkdwn'] = ["pretext", "text"]
-attachments_dict['mrkdwn'] = 'false'
+# attachments_dict['mrkdwn'] = 'false'
 attachments = [attachments_dict]
 
 slack.chat.post_message(channel='#1_mlblog-bot',
