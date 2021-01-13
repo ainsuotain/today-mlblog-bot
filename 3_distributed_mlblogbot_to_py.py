@@ -93,7 +93,7 @@ for t in new_index:
   # print(new_list['link'][t])
 
 ### 슬랙 토큰
-token = 'xoxb-714887965620-1630247033089-8UwvJ42ZcwMpRrY9h1aSxh0R'
+token = 'xoxb-714887965620-1630247033089-G35KDisSuIO8rd74M9oWEvKc'
 slack = Slacker(token)
 
 ## 오늘의 QT 말씀
@@ -123,7 +123,7 @@ attachments_dict['title_link'] = 'https://sum.su.or.kr:8888/bible/today'
 attachments_dict['mrkdwn_in'] = ["text", "pretext"]
 attachments = [attachments_dict]
 
-slack.chat.post_message(channel='#blog_alarm_bot',
+slack.chat.post_message(channel='#1_mlblog-bot',
                         text = None,
                         attachments = attachments,
                         icon_url='https://cdn2.iconfinder.com/data/icons/artificial-intelligence-ai-color/64/diagram-deep-learning-machine-network-nural-512.png',
@@ -137,7 +137,7 @@ if len(new_index) > 0:
     # print(n)
     # print(new_list['title'][n])
     # print(new_list['link'][n])
-    slack.chat.post_message(channel='#blog_alarm_bot',
+    slack.chat.post_message(channel='#1_mlblog-bot',
                             as_user = True,
                             icon_url='https://cdn2.iconfinder.com/data/icons/artificial-intelligence-ai-color/64/diagram-deep-learning-machine-network-nural-512.png',
                             text = "{0}: <{1}|link>".format(new_list['name'][n],
