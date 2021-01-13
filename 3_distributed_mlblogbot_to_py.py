@@ -95,7 +95,7 @@ for t in new_index:
   # print(new_list['link'][t])
 
 ### 슬랙 토큰
-token = 'xoxb-714887965620-1626668658374-z9bAHleR8bzYzCCIxXTV8G6i'
+token = 'xoxb-714887965620-1626668658374-sPevl6X7Gy6R2L8Z0r5niRLI'
 slack = Slacker(token)
 
 ## 오늘의 QT 말씀
@@ -120,9 +120,9 @@ attachments_dict = dict()
 attachments_dict['pretext'] = today_bible
 attachments_dict['title'] = script
 attachments_dict['title_link'] = 'https://sum.su.or.kr:8888/bible/today'
-attachments_dict['text'] = ' '
+attachments_dict['text'] = 'maeil-bible'
 
-attachments_dict['mrkdwn_in'] = ["text", "pretext"]
+attachments_dict['mrkdwn_in'] = ["pretext", "text"]
 attachments = [attachments_dict]
 
 slack.chat.post_message(channel='#1_mlblog-bot',
