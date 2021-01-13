@@ -23,7 +23,8 @@ from slacker import Slacker
 base_url = os.path.dirname(os.path.abspath(__file__))
 
 # rd =  pd.read_excel('/content/drive/MyDrive/Colab Notebooks/3. Hobby/latest_list/20210110_old_list_ref.xlsx')
-rd =  pd.read_excel(base_url + '/20210110_old_list_ref.xlsx')
+# rd =  pd.read_excel(base_url + '/20210110_old_list_ref.xlsx')
+rd =  pd.read_excel('20210110_old_list_ref.xlsx')
 rd.head(2)
 
 #### 사용할 것으로 필터링
@@ -150,7 +151,8 @@ if len(new_index) > 0:
 
   smd_today = smd_yesterday
   # smd_today.to_excel('/content/drive/MyDrive/Colab Notebooks/3. Hobby/latest_list/20210110_old_list_ref.xlsx', index = False)
-  smd_today.to_excel(base_url + '/20210110_old_list_ref.xlsx', index = False)
+  # smd_today.to_excel(base_url + '/20210110_old_list_ref.xlsx', index = False)
+  smd_today.to_excel('20210110_old_list_ref.xlsx', index = False)
 
 
 ###
