@@ -93,7 +93,7 @@ for t in new_index:
   # print(new_list['link'][t])
 
 ### 슬랙 토큰
-token = 'xoxb-714887965620-1626668658374-hJEZnK18izHUh3IWKAS54o2D'
+token = 'xoxb-714887965620-1626668658374-z9bAHleR8bzYzCCIxXTV8G6i'
 slack = Slacker(token)
 
 ## 오늘의 QT 말씀
@@ -118,7 +118,7 @@ attachments_dict = dict()
 attachments_dict['pretext'] = today_bible
 attachments_dict['title'] = script
 attachments_dict['title_link'] = 'https://sum.su.or.kr:8888/bible/today'
-# attachments_dict['text'] = '저자'
+attachments_dict['text'] = ' '
 
 attachments_dict['mrkdwn_in'] = ["text", "pretext"]
 attachments = [attachments_dict]
