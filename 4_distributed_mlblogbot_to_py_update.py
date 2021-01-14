@@ -121,6 +121,34 @@ today_bible = bible1 + ", (" + script + ")"
 print(today_bible)
 
 #### 슬랙 메시지 보내기!
+## new post가 있는 경우에 
+if len(new_index) > 0:
+  print("updated is exist!")
+  for n in new_index:
+    # print(n)
+    # print(new_list['title'][n])
+    # print(new_list['link'][n])
+    slack.chat.post_message(channel='#1_mlblog-bot',
+                            #as_user = True,
+                            #icon_url='https://cdn2.iconfinder.com/data/icons/artificial-intelligence-ai-color/64/diagram-deep-learning-machine-network-nural-512.png',
+                            text = "{0}: <{1}|link>".format(new_list['name'][n],
+                                                            new_list['link'][n]))
+
+  #### ref 업데이트!
+  for t in new_index:
+    # print(t)
+    smd_yesterday['title'][t] =  new_list['title'][t]
+    smd_yesterday['link'][t] =  new_list['link'][t]
+
+  smd_today = smd_yesterday
+  # smd_today.to_excel('/content/drive/MyDrive/Colab Notebooks/3. Hobby/latest_list/20210110_old_list_ref.xlsx', index = False)
+  # smd_today.to_excel(base_url + '/20210110_old_list_ref.xlsx', index = False)
+  smd_today.to_excel('20210110_old_list_ref.xlsx', index = False)
+    
+    
+    
+    
+###    
 now = time.localtime()
 daylist = ['월', '화', '수', '목', '금', '토', '일']
 ccc = daylist[now.tm_wday]
