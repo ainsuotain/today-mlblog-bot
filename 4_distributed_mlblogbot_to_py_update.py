@@ -120,13 +120,10 @@ today_bible = bible1 + ", (" + script + ")"
 print(today_bible)
 
 #### 슬랙 메시지 보내기!
-
-def getDay():
-    now = time.localtime()
-    daylist = ['월', '화', '수', '목', '금', '토', '일']
-    return daylist[now.tm_wday]
-ccc = getDay()    
-
+now = time.localtime()
+daylist = ['월', '화', '수', '목', '금', '토', '일']
+ccc = daylist[now.tm_wday]
+ 
 year, month, day, hour, min = map(str, time.strftime("%Y %m %d %H %M").split())
 today = year + "년 " + month +"월 " + day + "일 "+ ccc + "요일 오늘의 QT:" 
 slack.chat.post_message(channel='#1_mlblog-bot',
