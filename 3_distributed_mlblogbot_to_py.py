@@ -124,11 +124,11 @@ attachments_dict['text'] = 'maeil-bible'
 
 # attachments_dict['mrkdwn_in'] = ["pretext", "text"]
 # attachments_dict['mrkdwn'] = ["pretext", "text"]
-# attachments_dict['mrkdwn'] = 'false'
+attachments_dict['mrkdwn'] = 'true'
 attachments = [attachments_dict]
 
 slack.chat.post_message(channel='#1_mlblog-bot',
-                        text = None,
+                        text = 'None',
                         attachments = attachments,
                         #icon_url='https://cdn2.iconfinder.com/data/icons/artificial-intelligence-ai-color/64/diagram-deep-learning-machine-network-nural-512.png',
                         # as_user = True
