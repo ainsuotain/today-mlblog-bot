@@ -34,7 +34,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run bot with python
       run: |
-        python 3_distributed_mlblogbot_to_py.py
+        python 4_distributed_mlblogbot_to_py_update.py
     - name: Commits
       run: |
         git config --local user.email "ainsuotain@gmail.com"
