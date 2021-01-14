@@ -96,7 +96,7 @@ for t in new_index:
   # print(new_list['link'][t])
 
 ### 슬랙 토큰
-#token = 'xoxb-714887965620-1626668658374-puvFmqdtUrWFEexc4XSoVayM'
+#token = ''
 #slack = Slacker(token)
 
 ## 오늘의 QT 말씀
@@ -158,7 +158,7 @@ today = year + "년 " + month +"월 " + day + "일 "+ ccc + "요일 오늘의 QT
 # slack.chat.post_message(channel='#1_mlblog-bot',
 #                         text = "{0} \n*{1}* \n<{2}|{3}> :bell:".format(today, bible1, 'https://sum.su.or.kr:8888/bible/today' , script) )
 
-webhook_url= 'https://hooks.slack.com/services/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'
+webhook_url= ''
 
 payload = {
     "text": 'text  <https://www.google.com| This is a line of text>'
