@@ -12,7 +12,7 @@ Original file is located at
 import pandas as pd
 import numpy as np
 import sys, os
-# import json
+import time
 import requests
 from bs4 import BeautifulSoup
 # pip install feedparser
@@ -108,34 +108,33 @@ soup = BeautifulSoup(html, 'html.parser')
 
 bible1 = soup.find_all(class_ = 'bible_text')
 bible1 = bible1[0].getText().strip()
-# print(bible1)
+print(bible1)
+
+
 script = soup.find_all(class_ = 'bibleinfo_box')
 script = script[0].getText().strip()
-# print(script)
+print(script)
+
+
 today_bible = bible1 + ", (" + script + ")"
-# print(today_bible)
+print(today_bible)
 
 #### 슬랙 메시지 보내기!
-attachments_dict = dict()
-attachments_dict['pretext'] = today_bible
-attachments_dict['title'] = script
-attachments_dict['title_link'] = 'https://sum.su.or.kr:8888/bible/today'
-attachments_dict['text'] = 'maeil-bible'
 
-# attachments_dict['mrkdwn_in'] = ["pretext", "text"]
-# attachments_dict['mrkdwn'] = ["pretext", "text"]
-attachments_dict['mrkdwn'] = 'true'
-attachments = [attachments_dict]
+def getDay():
+    now = time.localtime()
+    daylist = ['월', '화', '수', '목', '금', '토', '일']
+    return daylist[now.tm_wday]
+ccc = getDay()    
 
+year, month, day, hour, min = map(str, time.strftime("%Y %m %d %H %M").split())
+today = year + "년 " + month +"월 " + day + "일 "+ ccc + "요일 오늘의 QT:" 
 slack.chat.post_message(channel='#1_mlblog-bot',
-                        text = 'None',
-                        attachments = attachments,
-                        #icon_url='https://cdn2.iconfinder.com/data/icons/artificial-intelligence-ai-color/64/diagram-deep-learning-machine-network-nural-512.png',
-                        # as_user = True
-                       )
+                        text = "{0} \n*{1}* \n<{2}|{3}> :bell:".format(today, bible1, 'https://sum.su.or.kr:8888/bible/today' , script) )
 
 
 
+## new post가 있는 경우에 
 if len(new_index) > 0:
   print("updated is exist!")
   for n in new_index:
