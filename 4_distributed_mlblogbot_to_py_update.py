@@ -130,12 +130,15 @@ today = year + "년 " + month +"월 " + day + "일 "+ ccc + "요일 오늘의 QT
 # slack.chat.post_message(channel='#1_mlblog-bot',
 #                         text = "{0} \n*{1}* \n<{2}|{3}> :bell:".format(today, bible1, 'https://sum.su.or.kr:8888/bible/today' , script) )
 
-webhook_url= 'https://hooks.slack.com/services/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'
-content= "WebHook Test"
-payload= {"text": content}
+webhook_url= 'https://hooks.slack.com/services/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'
+
+payload = {
+    "text": 'text  <https://www.google.com| This is a line of text>'
+}
+
 
 requests.post(
-    webhook_url, data=json.dumps(payload),
+    url = webhook_url, data = json.dumps(payload),
     headers={'Content-Type':'application/json'}
 )
 
