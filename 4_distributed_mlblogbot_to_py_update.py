@@ -95,7 +95,7 @@ for t in new_index:
   # print(new_list['link'][t])
 
 ### 슬랙 토큰
-token = 'xoxb-714887965620-1626668658374-sPevl6X7Gy6R2L8Z0r5niRLI'
+token = 'xoxb-714887965620-1626668658374-AoMJNXWpnkPbMz2iZKLgQT88'
 slack = Slacker(token)
 
 ## 오늘의 QT 말씀
