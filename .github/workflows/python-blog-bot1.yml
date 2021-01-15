@@ -35,6 +35,9 @@ jobs:
     - name: Run bot with python
       run: |
         python 4_distributed_mlblogbot_to_py_update.py
+      env: # Or as an environment variable
+        SLACK_URL: ${{ secrets.SLACK_URL }}
+
     - name: Commits
       run: |
         git config --local user.email "ainsuotain@gmail.com"
