@@ -132,10 +132,24 @@ ccc = daylist[now.tm_wday]
  
 year, month, day, hour, min = map(str, time.strftime("%Y %m %d %H %M").split())
 today = year + "년 " + month +"월 " + day + "일 "+ ccc + "요일 오늘의 QT:" 
-slack.chat.post_message(channel='#1_mlblog-bot',
-                        text = "{0} \n*{1}* \n<{2}|{3}> :bell:".format(today, bible1, 'https://sum.su.or.kr:8888/bible/today' , script) )
+# slack.chat.post_message(channel='#1_mlblog-bot',
+#                        text = "{0} \n*{1}* \n<{2}|{3}> :bell:".format(today, bible1, 'https://sum.su.or.kr:8888/bible/today' , script) )
 
+attachments_dict = dict()
+attachments_dict['pretext'] =  today ## 맨위 날짜
+attachments_dict['title'] = "*{0}*".format(bible1)
+attachments_dict['title_link'] = 'https://sum.su.or.kr:8888/bible/today'
+attachments_dict['text'] = "{0} :bell:".format( 'Maeil bible' ) 
+attachments_dict['color']= "#36a64f"
+attachments_dict['mrkdwn'] = 'true'
+attachments = [attachments_dict]
 
+slack.chat.post_message(channel='#1_mlblog_bot',
+                        text = None,
+                        attachments = attachments,
+                        #icon_url='https://cdn2.iconfinder.com/data/icons/artificial-intelligence-ai-color/64/diagram-deep-learning-machine-network-nural-512.png',
+                        #as_user = True
+                        )
 
 ## new post가 있는 경우에 
 if len(new_index) > 0:
@@ -144,7 +158,7 @@ if len(new_index) > 0:
     # print(n)
     # print(new_list['title'][n])
     # print(new_list['link'][n])
-    slack.chat.post_message(channel='#1_mlblog-bot',
+    slack.chat.post_message(channel='#1_mlblog_bot',
                             #as_user = True,
                             #icon_url='https://cdn2.iconfinder.com/data/icons/artificial-intelligence-ai-color/64/diagram-deep-learning-machine-network-nural-512.png',
                             text = "{0}: <{1}|link>".format(new_list['name'][n],
