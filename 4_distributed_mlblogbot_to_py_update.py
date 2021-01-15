@@ -19,6 +19,7 @@ import openpyxl
 
 import datetime
 import pytz 
+from pytz import timezone
 
 from bs4 import BeautifulSoup
 # pip install feedparser
