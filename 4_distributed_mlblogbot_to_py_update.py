@@ -151,6 +151,10 @@ slack.chat.post_message(channel='#1_mlblog_bot',
                         #as_user = True
                         )
 
+# for no commit case
+file = open("qt.txt", "w");
+file.write(bible1)
+
 ## new post가 있는 경우에 
 if len(new_index) > 0:
   print("updated is exist!")
