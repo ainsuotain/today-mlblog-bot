@@ -162,8 +162,9 @@ slack.chat.post_message(channel='#1_mlblog_bot',
                         )
 
 # for no commit case
+now = time.localtime()
 file = open("qt.txt", "w");
-file.write(min)
+file.write(now)
 
 ## new post가 있는 경우에 
 if len(new_index) > 0:
