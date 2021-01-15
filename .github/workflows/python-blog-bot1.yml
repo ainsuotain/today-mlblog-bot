@@ -8,8 +8,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  #schedule:
-  #  - cron 0 20 * * * # 매일 20시 
+  schedule:
+    - cron: '0 20 * * *' # 매일 20시 
   #  - cron:  '*/3 * * * *' # 주기적으로 실행하기 위한 스케줄링 - cron 설정
 
 jobs:
