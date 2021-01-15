@@ -3,4 +3,3 @@ bs4==0.0.1
 feedparser==6.0.2
 slacker==0.14.0
 requests==2.23.0
-
