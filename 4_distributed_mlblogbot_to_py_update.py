@@ -147,7 +147,7 @@ today = year + "년 " + month +"월 " + day + "일 "+ date + "요일 오늘의 Q
 
 attachments_dict = dict()
 attachments_dict['pretext'] =  today ## 맨위 날짜
-attachments_dict['title'] = "*{0}*".format(bible1)
+attachments_dict['title'] = "{0}".format(bible1)
 attachments_dict['title_link'] = 'https://sum.su.or.kr:8888/bible/today'
 attachments_dict['text'] = "{0} :bell:".format( 'Maeil bible' ) 
 attachments_dict['color']= "#36a64f"
