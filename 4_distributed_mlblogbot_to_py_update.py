@@ -120,7 +120,7 @@ print(today_bible)
 #### 슬랙 메시지 보내기!
 
 ### 슬랙 토큰
-token = os.environ.get('BOT_TOKEN')
+token = os.environ.get('SLACK_URL')
 slack = Slacker(token)
 
 
