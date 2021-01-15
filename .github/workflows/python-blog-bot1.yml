@@ -32,7 +32,6 @@ jobs:
         pip install pandas
         pip install numpy
         pip install openpyxl
-        pip install datetime
         import timezone
         pip install xlrd==1.2.0
         pip install -r requirements.txt
