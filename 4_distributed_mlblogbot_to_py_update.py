@@ -95,10 +95,6 @@ for t in new_index:
   # print(new_list['title'][t])
   # print(new_list['link'][t])
 
-### 슬랙 토큰
-#token = ''
-#slack = Slacker(token)
-
 ## 오늘의 QT 말씀
 # 매일성경
 temp = 'https://sum.su.or.kr:8888/bible/today'
@@ -120,7 +116,26 @@ print(script)
 today_bible = bible1 + ", (" + script + ")"
 print(today_bible)
 
+
 #### 슬랙 메시지 보내기!
+
+### 슬랙 토큰
+token = os.environ.get('BOT_TOKEN')
+slack = Slacker(token)
+
+
+## 오늘의 
+now = time.localtime()
+daylist = ['월', '화', '수', '목', '금', '토', '일']
+ccc = daylist[now.tm_wday]
+ 
+year, month, day, hour, min = map(str, time.strftime("%Y %m %d %H %M").split())
+today = year + "년 " + month +"월 " + day + "일 "+ ccc + "요일 오늘의 QT:" 
+slack.chat.post_message(channel='#1_mlblog-bot',
+                        text = "{0} \n*{1}* \n<{2}|{3}> :bell:".format(today, bible1, 'https://sum.su.or.kr:8888/bible/today' , script) )
+
+
+
 ## new post가 있는 경우에 
 if len(new_index) > 0:
   print("updated is exist!")
@@ -148,7 +163,8 @@ if len(new_index) > 0:
     
     
     
-###    
+###
+'''
 now = time.localtime()
 daylist = ['월', '화', '수', '목', '금', '토', '일']
 ccc = daylist[now.tm_wday]
@@ -170,7 +186,7 @@ requests.post(
     headers={'Content-Type':'application/json'}
 )
 
-
+'''
 
 
 ###
