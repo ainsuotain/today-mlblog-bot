@@ -16,6 +16,10 @@ import time
 import requests
 import json
 import openpyxl
+
+import datetime
+import pytz 
+
 from bs4 import BeautifulSoup
 # pip install feedparser
 import feedparser
@@ -126,12 +130,17 @@ slack = Slacker(token)
 
 
 ## 오늘의 
-now = time.localtime()
-daylist = ['월', '화', '수', '목', '금', '토', '일']
-ccc = daylist[now.tm_wday]
- 
-year, month, day, hour, min = map(str, time.strftime("%Y %m %d %H %M").split())
-today = year + "년 " + month +"월 " + day + "일 "+ ccc + "요일 오늘의 QT:" 
+def getDay(x):
+    daylist = ['월', '화', '수', '목', '금', '토', '일']
+    return daylist[x]
+
+date = getDay(datetime.date(int(year), int(month), int(day)).weekday())
+
+
+# year, month, day, hour, min = map(str, time.strftime("%Y %m %d %H %M").split())
+year, month, day, hour, min = map(str, datetime.datetime.now(timezone('Asia/Seoul')).strftime("%Y %m %d %H %M").split())
+
+today = year + "년 " + month +"월 " + day + "일 "+ date + "요일 오늘의 QT:" 
 # slack.chat.post_message(channel='#1_mlblog-bot',
 #                        text = "{0} \n*{1}* \n<{2}|{3}> :bell:".format(today, bible1, 'https://sum.su.or.kr:8888/bible/today' , script) )
 
