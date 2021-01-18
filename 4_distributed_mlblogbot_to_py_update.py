@@ -38,17 +38,19 @@ rd.head(2)
 smd_yesterday = rd[rd['used'] == 'o']
 smd_yesterday
 smd_yesterday.reset_index(drop = True, inplace=True)
-smd_yesterday
+smd_yesterday.to_excel('Blogs_used_list.xlsx', index = False)
+
+rd2 =  pd.read_excel('Blogs_used_list.xlsx') 
+smd_today = rd2
 
 #### 어제꺼에서 feed 이용해서 오늘자 내용 읽어옴
 post_titles = []
 post_links = []
-for b in range(np.shape(smd_yesterday)[0]):
-  print(smd_yesterday['name'][b])
+for b in range(np.shape(smd_today)[0]):
+  print(smd_today['name'][b])
 
-
-  if smd_yesterday['source'][b] != 'naver_feedx':
-    rss_feed = feedparser.parse(smd_yesterday['rss_feed'][b])
+  if smd_today['source'][b] != 'naver_feedx':
+    rss_feed = feedparser.parse(smd_today['rss_feed'][b])
     rss_list = []
     for entry in rss_feed.entries[:5]:
       # print(entry)
@@ -57,9 +59,11 @@ for b in range(np.shape(smd_yesterday)[0]):
     temp =  rss_list[0]
     temp
 
-    if smd_yesterday['name'][b] == 'dsba_seminar': ### feed 확인
+    if smd_today['name'][b] == 'dsba_seminar': ### feed 확인
       temp = rss_list[3]
     
+    if smd_today['name'][b] == 'insightCampus': ### feed 확인
+      temp = rss_list[1]
     
     print(temp['title'])
     print(temp['link'])
@@ -72,19 +76,19 @@ for b in range(np.shape(smd_yesterday)[0]):
     # post_titles.append(smd_yesterday['name'][b])
     print(" ")
 
-  elif smd_yesterday['source'][b] == 'naver_feedx':
+  elif smd_today['source'][b] == 'naver_feedx':
     print('')
 
 ### 뉴리스트 만들기(오늘자)
 new_list = pd.DataFrame()
-new_list['name'] = smd_yesterday['name']
-new_list['rss_feed'] = smd_yesterday['rss_feed']
+new_list['name'] = smd_today['name']
+new_list['rss_feed'] = smd_today['rss_feed']
 new_list['title'] = post_titles ###
 new_list['link'] = post_links ### update 부분!
 new_list
 
 #### 과거와 비교
-new_index = np.where(new_list['title'] != smd_yesterday['title']) ## 오늘 vs 과거
+new_index = np.where(new_list['title'] != smd_today['title']) ## 오늘 vs 과거
 new_index # 다른 index
 
 
@@ -149,7 +153,7 @@ attachments_dict = dict()
 attachments_dict['pretext'] =  today ## 맨위 날짜
 attachments_dict['title'] = "{0}".format(bible1)
 attachments_dict['title_link'] = 'https://sum.su.or.kr:8888/bible/today'
-attachments_dict['text'] = "{0} :bell:".format( 'Maeil bible' ) 
+attachments_dict['text'] = "{0}/<{1}|날씨>/<{2}|오늘의영어> :bell:".format( 'Maeil bible', 'https://weather.naver.com/today', 'https://learn.dict.naver.com/m/endic/main.nhn') 
 attachments_dict['color']= "#36a64f"
 attachments_dict['mrkdwn'] = 'true'
 attachments = [attachments_dict]
@@ -182,14 +186,15 @@ if len(new_index) > 0:
   #### ref 업데이트!
   for t in new_index:
     # print(t)
-    smd_yesterday['title'][t] =  new_list['title'][t]
-    smd_yesterday['link'][t] =  new_list['link'][t]
+    smd_today['title'][t] =  new_list['title'][t]
+    smd_today['link'][t] =  new_list['link'][t]
 
-  smd_today = smd_yesterday
+  blog_today_list = smd_today
   # smd_today.to_excel('/content/drive/MyDrive/Colab Notebooks/3. Hobby/latest_list/20210110_old_list_ref.xlsx', index = False)
   # smd_today.to_excel(base_url + '/20210110_old_list_ref.xlsx', index = False)
-  smd_today.to_excel('20210110_old_list_ref.xlsx', index = False)
-    
+  # blog_today_list.to_excel('20210110_old_list_ref.xlsx', index = False)
+  blog_today_list.to_excel('Blogs_used_list.xlsx ', index = False)  
+   
     
     
     
