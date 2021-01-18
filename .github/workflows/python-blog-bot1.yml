@@ -44,7 +44,7 @@ jobs:
       run: |
         git config --local user.email "ainsuotain@gmail.com"
         git config --local user.name "ainsuotain" # 커밋에 포함될 이름
-        git add 20210110_old_list_ref.xlsx
+        git add Blogs_used_list.xlsx
         git add qt.txt
         git commit -m "Auto - Update data with bot!" # 커밋 메세지
     - name: Push
