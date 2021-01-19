@@ -6,5 +6,5 @@ Github Actions 를 이용한 토이프로젝트
 추후 공지
 
 # 레퍼런스
-https://github.com/techinpark/today-devblog-bot
+https://github.com/techinpark/today-devblog-bot 
 https://eunjin3786.tistory.com/150 
