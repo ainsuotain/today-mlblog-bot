@@ -1,6 +1,6 @@
 # today-mlblog-bot
 매일 지정한 시간에, 새로 올라온 ml 관련 글들을 슬랙 채널로 보내주는 봇  
-Slack webhook과 Github Actions 를 이용한 Toy projecet  
+Slack webhook과 Github Actions 를 이용한 Toy project  
 RSS Feed가 필수적으로 있어야 합니다 
 
 # 사용법
