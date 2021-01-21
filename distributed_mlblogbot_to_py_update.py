@@ -50,36 +50,47 @@ post_links = []
 for b in range(np.shape(smd_today)[0]):
   print(smd_today['name'][b])
 
-  if smd_today['source'][b] != 'naver_feedx':
-    rss_feed = feedparser.parse(smd_today['rss_feed'][b])
-    rss_list = []
-    for entry in rss_feed.entries[:5]:
-      # print(entry)
-      rss_list.append(entry)
+  try:
+    if smd_today['source'][b] != 'naver_feedx':
+      rss_feed = feedparser.parse(smd_today['rss_feed'][b])
+      rss_list = []
+      for entry in rss_feed.entries[:5]:
+        # print(entry)
+        rss_list.append(entry)
 
-    temp =  rss_list[0]
-    temp
+      temp =  rss_list[0]
+      temp
 
-    if smd_today['name'][b] == 'dsba_seminar': ### feed 확인
-      temp = rss_list[3]
+      if smd_today['name'][b] == 'dsba_seminar': ### feed 확인
+        temp = rss_list[3]
     
-    if smd_today['name'][b] == 'insightCampus': ### feed 확인
-      temp = rss_list[1]
+      if smd_today['name'][b] == 'insightCampus': ### feed 확인
+        temp = rss_list[1]
     
-    print(temp['title'])
-    print(temp['link'])
-    ## print(temp['author']) # 가끔 안나옴 --> 그냥 넣어줘야 할듯...
+      print(temp['title'])
+      print(temp['link'])
+      ## print(temp['author']) # 가끔 안나옴 --> 그냥 넣어줘야 할듯...
 
+      post_titles.append(temp['title'].strip())
+      post_links.append(temp['link'].strip())
+      # post_titles.append(smd_yesterday['name'][b])
+      print(" ")
 
+    elif smd_today['source'][b] == 'naver_feedx':
+      print('')
+    
+  except Exception as e:    # 모든 예외의 에러 메시지를 출력할 때는 Exception을 사용
+    ## feed에서 못 가져올 경우
+    print('예외가 발생했습니다.', e)
 
-    post_titles.append(temp['title'].strip())
-    post_links.append(temp['link'].strip())
-    # post_titles.append(smd_yesterday['name'][b])
-    print(" ")
-
-  elif smd_today['source'][b] == 'naver_feedx':
-    print('')
-
+    ## 가짜 제목 넣어주기
+    post_titles.append('error_occured')
+    post_links.append('https://www.error_link.com')
+    print('제목: ' + str(post_titles))
+    print('링크: ' + str(post_links))
+    
+    
+    
 ### 뉴리스트 만들기(오늘자)
 new_list = pd.DataFrame()
 new_list['name'] = smd_today['name']
