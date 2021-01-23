@@ -84,10 +84,11 @@ for b in range(np.shape(smd_today)[0]):
     print('예외가 발생했습니다.', e)
 
     ## 가짜 제목 넣어주기
-    post_titles.append('error_occured')
+    post_titles.append('error_occured'+str(b))
     post_links.append('https://www.error_link.com')
     print('제목: ' + str(post_titles))
     print('링크: ' + str(post_links))
+    print('')
     
     
     
