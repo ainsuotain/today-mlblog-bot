@@ -82,22 +82,29 @@ for b in range(np.shape(smd_today)[0]):
   except Exception as e:    # 모든 예외의 에러 메시지를 출력할 때는 Exception을 사용
     ## feed에서 못 가져올 경우
     print('예외가 발생했습니다.', e)
-
+    ## 어제 저장된 제목으로 넣어주기
+    post_titles.append(smd_today['name'][b])
+    post_links.append(smd_today['link'][b])
+    print('제목: ' + str(post_titles))
+    print('링크: ' + str(post_links))
+    print('')
+    """
     ## 가짜 제목 넣어주기
     post_titles.append('error_occured'+str(b))
     post_links.append('https://www.error_link.com')
     print('제목: ' + str(post_titles))
     print('링크: ' + str(post_links))
     print('')
-    
+    """
+
     
     
 ### 뉴리스트 만들기(오늘자)
 new_list = pd.DataFrame()
-new_list['name'] = smd_today['name']
-new_list['rss_feed'] = smd_today['rss_feed']
-new_list['title'] = post_titles ###
-new_list['link'] = post_links ### update 부분!
+new_list['name'] = smd_today['name'] # 어제자
+new_list['rss_feed'] = smd_today['rss_feed'] # 어제자
+new_list['title'] = post_titles ### 오늘 업데이트된 부분
+new_list['link'] = post_links ### 오늘 업데이트된 부분
 new_list
 
 #### 과거와 비교
