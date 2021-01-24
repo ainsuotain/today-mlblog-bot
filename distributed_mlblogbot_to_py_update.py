@@ -35,14 +35,14 @@ base_url = os.path.dirname(os.path.abspath(__file__))
 rd =  pd.read_excel('20210110_old_list_ref.xlsx')
 rd.head(2)
 
-#### 사용할 것으로 필터링
-smd_yesterday = rd[rd['used'] == 'o']
-smd_yesterday
-smd_yesterday.reset_index(drop = True, inplace=True)
-smd_yesterday.to_excel('Blogs_used_list.xlsx', index = False)
-print(smd_yesterday['title'])
+#### 사용할 것으로 필터링 --> 추후 
+temp = rd[rd['used'] == 'o']
+temp
+temp.reset_index(drop = True, inplace=True)
+# temp.to_excel('Blogs_used_list.xlsx', index = False)
+# print(temp['title'])
 
-rd2 =  pd.read_excel('Blogs_used_list.xlsx') 
+rd2 =  pd.read_excel('Blogs_used_list.xlsx') ## 어제 업데이트 된 내용
 smd_today = rd2
 print(smd_today['title'])
 
@@ -109,7 +109,10 @@ new_list['title'] = post_titles ### 오늘 업데이트된 부분
 new_list['link'] = post_links ### 오늘 업데이트된 부분
 new_list
 
+
 #### 과거와 비교
+# smd_yesterday =  pd.read_excel('Blogs_used_list.xlsx') 
+
 new_index = np.where(new_list['title'] != smd_today['title']) ## 오늘 vs 과거
 new_index # 다른 index
 
