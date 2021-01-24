@@ -39,10 +39,12 @@ rd.head(2)
 smd_yesterday = rd[rd['used'] == 'o']
 smd_yesterday
 smd_yesterday.reset_index(drop = True, inplace=True)
-# smd_yesterday.to_excel('Blogs_used_list.xlsx', index = False)
+smd_yesterday.to_excel('Blogs_used_list.xlsx', index = False)
+print(smd_yesterday['title'])
 
-# rd2 =  pd.read_excel('Blogs_used_list.xlsx') 
-smd_today = smd_yesterday
+rd2 =  pd.read_excel('Blogs_used_list.xlsx') 
+smd_today = rd2
+print(smd_today['title'])
 
 #### 어제꺼에서 feed 이용해서 오늘자 내용 읽어옴
 post_titles = []
@@ -108,7 +110,7 @@ new_list['link'] = post_links ### 오늘 업데이트된 부분
 new_list
 
 #### 과거와 비교
-new_index = np.where(new_list['title'] != smd_today['title']) ## 오늘 vs 과거
+new_index = np.where(new_list['title'] != smd_yesterday['title']) ## 오늘 vs 과거
 new_index # 다른 index
 
 
@@ -216,7 +218,7 @@ if len(new_index) > 0:
   # smd_today.to_excel(base_url + '/20210110_old_list_ref.xlsx', index = False)
   # blog_today_list.to_excel('20210110_old_list_ref.xlsx', index = False)
   blog_today_list.to_excel('Blogs_used_list.xlsx', index = False)  
-   
+  print(blog_today_list['title']) 
     
     
     
