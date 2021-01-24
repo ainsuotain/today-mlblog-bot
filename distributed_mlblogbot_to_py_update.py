@@ -119,11 +119,13 @@ new_index # 다른 index
 ### 달라진 내용 확인
 np.shape(new_index)[1]
 new_index = np.concatenate(new_index)
+print("===========================================================")
+print("달라진 내용!")
 for t in new_index:
   print('')
-  # print(t)
-  # print(new_list['title'][t])
-  # print(new_list['link'][t])
+  print(t)
+  print(new_list['title'][t])
+  print(new_list['link'][t])
 
 ## 오늘의 QT 말씀
 # 매일성경
