@@ -65,7 +65,7 @@ for b in range(np.shape(smd_today)[0]):
         temp = rss_list[3]
     
       if smd_today['name'][b] == 'insightCampus': ### feed 확인
-        temp = rss_list[1]
+        temp = rss_list[0]
     
       print(temp['title'])
       print(temp['link'])
