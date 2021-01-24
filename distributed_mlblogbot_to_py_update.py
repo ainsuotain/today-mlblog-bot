@@ -110,7 +110,7 @@ new_list['link'] = post_links ### 오늘 업데이트된 부분
 new_list
 
 #### 과거와 비교
-new_index = np.where(new_list['title'] != smd_yesterday['title']) ## 오늘 vs 과거
+new_index = np.where(new_list['title'] != smd_today['title']) ## 오늘 vs 과거
 new_index # 다른 index
 
 
