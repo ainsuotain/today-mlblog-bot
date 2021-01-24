@@ -39,10 +39,10 @@ rd.head(2)
 smd_yesterday = rd[rd['used'] == 'o']
 smd_yesterday
 smd_yesterday.reset_index(drop = True, inplace=True)
-smd_yesterday.to_excel('Blogs_used_list.xlsx', index = False)
+# smd_yesterday.to_excel('Blogs_used_list.xlsx', index = False)
 
-rd2 =  pd.read_excel('Blogs_used_list.xlsx') 
-smd_today = rd2
+# rd2 =  pd.read_excel('Blogs_used_list.xlsx') 
+smd_today = smd_yesterday
 
 #### 어제꺼에서 feed 이용해서 오늘자 내용 읽어옴
 post_titles = []
